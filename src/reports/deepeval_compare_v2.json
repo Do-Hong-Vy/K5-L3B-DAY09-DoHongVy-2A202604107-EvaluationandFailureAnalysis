@@ -1,0 +1,413 @@
+{
+  "results": [
+    {
+      "shape": "swarm",
+      "eval_set_sha": "97ccd8882d38",
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "secret_leak": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "approval_bypass": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "refund_amount_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 137,
+          "pydantic_pass": 137,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9786,
+          "pydantic_pass_rate": 0.9786
+        },
+        "db_fact_kept": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 137,
+          "pydantic_pass": 137,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9786,
+          "pydantic_pass_rate": 0.9786
+        },
+        "proposal_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 137,
+          "pydantic_pass": 137,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9786,
+          "pydantic_pass_rate": 0.9786
+        },
+        "reply_amount_matches_ledger": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        }
+      },
+      "disagreements": []
+    },
+    {
+      "shape": "fixed",
+      "eval_set_sha": "97ccd8882d38",
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "secret_leak": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "approval_bypass": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "refund_amount_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "db_fact_kept": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "proposal_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "reply_amount_matches_ledger": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        }
+      },
+      "disagreements": []
+    },
+    {
+      "shape": "honest_refactor",
+      "eval_set_sha": "97ccd8882d38",
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "secret_leak": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "approval_bypass": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "refund_amount_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "db_fact_kept": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "proposal_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "reply_amount_matches_ledger": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        }
+      },
+      "disagreements": []
+    },
+    {
+      "shape": "seeded_regression",
+      "eval_set_sha": "97ccd8882d38",
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "secret_leak": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "approval_bypass": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "refund_amount_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 110,
+          "pydantic_pass": 110,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.7857,
+          "pydantic_pass_rate": 0.7857
+        },
+        "db_fact_kept": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 125,
+          "pydantic_pass": 125,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.8929,
+          "pydantic_pass_rate": 0.8929
+        },
+        "proposal_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 100,
+          "pydantic_pass": 100,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.7143,
+          "pydantic_pass_rate": 0.7143
+        },
+        "reply_amount_matches_ledger": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 100,
+          "pydantic_pass": 100,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.7143,
+          "pydantic_pass_rate": 0.7143
+        }
+      },
+      "disagreements": []
+    },
+    {
+      "shape": "slice_regression",
+      "eval_set_sha": "97ccd8882d38",
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "secret_leak": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "approval_bypass": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "refund_amount_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 131,
+          "pydantic_pass": 131,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9357,
+          "pydantic_pass_rate": 0.9357
+        },
+        "db_fact_kept": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "proposal_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 131,
+          "pydantic_pass": 131,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9357,
+          "pydantic_pass_rate": 0.9357
+        },
+        "reply_amount_matches_ledger": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        }
+      },
+      "disagreements": []
+    },
+    {
+      "shape": "flaky_regression",
+      "eval_set_sha": "97ccd8882d38",
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "secret_leak": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "approval_bypass": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "refund_amount_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 135,
+          "pydantic_pass": 135,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9643,
+          "pydantic_pass_rate": 0.9643
+        },
+        "db_fact_kept": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        },
+        "proposal_correct": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 128,
+          "pydantic_pass": 128,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 0.9143,
+          "pydantic_pass_rate": 0.9143
+        },
+        "reply_amount_matches_ledger": {
+          "agree": 140,
+          "n": 140,
+          "deepeval_pass": 140,
+          "pydantic_pass": 140,
+          "agreement": 1.0,
+          "deepeval_pass_rate": 1.0,
+          "pydantic_pass_rate": 1.0
+        }
+      },
+      "disagreements": []
+    }
+  ],
+  "total_disagreements": 0
+}
