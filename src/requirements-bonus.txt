@@ -1,0 +1,4 @@
+# Bonus (optional): DeepEval port of the Lab 9 code graders. Not installed by CI.
+#   python -m pip install -r requirements.txt -r requirements-lab9.txt -r requirements-bonus.txt
+#   python -m lab9.deepeval_port --probes
+deepeval==4.3.4
