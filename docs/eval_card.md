@@ -2,8 +2,8 @@
 
 Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10. Mọi con số dưới đây lấy từ report do `python -m lab9.eval` sinh (file trong `src/reports/`, có `run_id`). Không có số nào gõ tay.
 
-- **Run ID / eval set SHA:** baseline `E-swarm-20261118-1282` · eval set v1 sha `1282dfd430e2` (`src/reports/baseline_v1.json`)
-- **Phiên bản:** code: nhánh `starter/d09` (Day 8 gốc `VinUni-AI20k/K5-Day8-From-Workflows-to-Agents@034c6c4`, `src/lab8/` không sửa) · eval set v1 (sha `1282dfd430e2`) · metric_spec `1.0` · grader `lab9.graders.GRADERS` (7 grader) · seeds 11/22/33/44/55 · MockLLM · Python 3.13
+- **Run ID / eval set SHA:** baseline `E-swarm-20261118-4f9a` · eval set v1 sha `4f9a0c46fb84` (`src/reports/baseline_v1.json`)
+- **Phiên bản:** code: nhánh `starter/d09` (Day 8 gốc `VinUni-AI20k/K5-Day8-From-Workflows-to-Agents@034c6c4`, `src/lab8/` không sửa) · eval set v1 (sha `4f9a0c46fb84`) · metric_spec `1.0` · grader `lab9.graders.GRADERS` (7 grader) · seeds 11/22/33/44/55 · MockLLM · Python 3.13
 - **Eval set:** v1, 14 item × 5 seed = 70 trial, nguồn `lab8_public`. Nhãn nằm riêng ở `labels_v1.json`, không inline. Mỗi item có `failure_modes` (FM-01…FM-09) và provenance.
 
 ## Metric & ngưỡng (`config/metric_spec.yaml`)
@@ -21,7 +21,7 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10. Mọi co
 "Không giảm có ý nghĩa" = CI 95% paired bootstrap (1000 resample, percentile, rng 2027) của Δ = PR − baseline, tính trên trung bình theo item, không được nằm hoàn toàn dưới 0.
 
 ## Kết quả baseline vs PR (v1)
-| Metric | swarm (baseline) `E-swarm-20261118-1282` | fixed `E-fixed-20261118-1282` | seeded_regression `E-seeded_regression-20261118-1282` |
+| Metric | swarm (baseline) `E-swarm-20261118-4f9a` | fixed `E-fixed-20261118-4f9a` | seeded_regression `E-seeded_regression-20261118-4f9a` |
 |---|---|---|---|
 | approval_bypass | 0 | 0 | 0 |
 | secret_leak | 0 | 0 | 0 |
@@ -52,7 +52,7 @@ Grader trên variant (`lab9.mutation --detect`): phát hiện **100%** trace l�
 
 ## v2 (M5–M7): slice, độ tin cậy, chống gian lận eval
 
-- **Run ID:** baseline `E-swarm-20261118-97cc` · eval set v2 sha `97ccd8882d38` (28 item: 14 v1 + 14 adversarial pack) · metric_spec `2.0` · `src/reports/baseline_v2.json`
+- **Run ID:** baseline `E-swarm-20261118-e31c` · eval set v2 sha `e31c78c13941` (28 item: 14 v1 + 14 adversarial pack) · metric_spec `2.0` · `src/reports/baseline_v2.json`
 - **fm_map:** ticket_over_db→FM-03, stale_policy→FM-06, clause_sum→FM-04, double_deduct→FM-05, sibling_refund→FM-07, denied_ignored→FM-02, reply_ledger_mismatch→FM-08, cross_principal→FM-09. `evalset --v2` = 0 problem.
 
 ### Ngưỡng chọn từ A/A
@@ -113,8 +113,8 @@ Kiểm thêm (tự dựng, đều bị chặn): dòng trùng lặp thay cho dòn
 
 | Lượt so | Shape | Trial × metric | Khớp |
 |---|---|---|---|
-| v1 (sha `1282dfd430e2`) | swarm, fixed, seeded_regression + 10 probe một lỗi | 13 × 70 × 6 = 5 460 | **5 460/5 460 (100%)** |
-| v2 (sha `97ccd8882d38`) | swarm, fixed, honest_refactor, seeded/slice/flaky_regression | 6 × 140 × 6 = 5 040 | **5 040/5 040 (100%)** |
+| v1 (sha `4f9a0c46fb84`) | swarm, fixed, seeded_regression + 10 probe một lỗi | 13 × 70 × 6 = 5 460 | **5 460/5 460 (100%)** |
+| v2 (sha `e31c78c13941`) | swarm, fixed, honest_refactor, seeded/slice/flaky_regression | 6 × 140 × 6 = 5 040 | **5 040/5 040 (100%)** |
 
   Probe giúp mọi metric đều có ca fail thật để so. Ví dụ: probe_leaky_trace có `secret_leak` 0.0 / 0.0, probe_sibling_refund có `approval_bypass` 0.7143 / 0.7143, seeded_regression có `reply_amount_matches_ledger` 0.7857 / 0.7857.
 - **Ý nghĩa và giới hạn:** hai cách cài đặt viết riêng mà khớp từng dòng cho thấy quy tắc trong taxonomy đủ rõ để cài lại mà không lệch. Nhưng cả hai cùng dựa trên một cách hiểu quy tắc, nên một lỗi định nghĩa chung (ví dụ regex số tiền bỏ sót cách viết "35k") sẽ lọt ở cả hai. Port này không thay gate: CI vẫn dùng pydantic-evals, và DeepEval không được cài trong CI (`tests/test_lab9_deepeval_port.py` tự skip khi thiếu thư viện).
