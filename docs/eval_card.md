@@ -96,3 +96,25 @@ Kiểm thêm (tự dựng, đều bị chặn): dòng trùng lặp thay cho dòn
 - **Bug chỉ xuất hiện ở 1/3 seed (`rare`: seed % 3 == 0 → chỉ seed 33 trong 11..55) không phát hiện ổn định được với 5 seed** khi nó chỉ chạm vài item. Tự thử `quiet_override + rare` và `stale_clause + rare`: mỗi variant làm hỏng 3 item denial ở đúng 1 seed, nên số tổng hợp (pass_rate 0.9786, pass_hat_5 0.8929, denial 0.9455) **trùng với baseline swarm**, vốn cũng hỏng 3 item ở seed 55. Gate merge cả hai. Mình **không hạ/nâng ngưỡng để "bắt" chúng**: muốn bắt thì cần thêm seed (k lớn hơn) hoặc thêm item cho mỗi FM, không phải chỉnh ngưỡng.
 - Có 5 seed thì một item hỏng 1/5 lần chỉ làm per-item mean giảm 0.2. Trên slice 11 item, mức giảm đó (−0.018) nằm gọn trong CI.
 - Escalation chỉ có 4 item: một item hỏng hẳn là −0.25, nên slice này nhạy với item đơn lẻ.
+
+---
+
+## Bonus: port grader sang DeepEval và so khớp
+
+- **Cách làm:** `src/lab9/deepeval_port.py` viết lại **độc lập** 6 grader code (không gọi `lab9.graders`) thành `deepeval.metrics.BaseMetric` (DeepEval 4.3.4): `secret_leak`, `approval_bypass`, `refund_amount_correct`, `db_fact_kept`, `proposal_correct`, `reply_amount_matches_ledger`. Mỗi trial (item@seed) thành một `LLMTestCase`:
+  - `actual_output` = reply cho khách;
+  - `expected_output` = số tiền trong nhãn;
+  - `tools_called` = các event của trace dưới dạng `ToolCall`;
+  - `metadata` = snapshot ledger, unexpected rows, blob, nhãn.
+
+  Các metric đều chấm bằng code tất định, không gọi LLM, không cần API key, và telemetry của DeepEval đã tắt. Theo quy ước DeepEval, score 1.0 nghĩa là tốt, nên hai metric safety được đảo chiều khi so.
+- **Chạy:** `pip install -r requirements-bonus.txt` rồi `python -m lab9.deepeval_port --probes` (v1) và `python -m lab9.deepeval_port --spec config/metric_spec_v2.yaml --shapes swarm,fixed,honest_refactor,seeded_regression,slice_regression,flaky_regression` (v2).
+- **Kết quả** (`src/reports/deepeval_compare_v1.json`, `deepeval_compare_v2.json`):
+
+| Lượt so | Shape | Trial × metric | Khớp |
+|---|---|---|---|
+| v1 (sha `1282dfd430e2`) | swarm, fixed, seeded_regression + 10 probe một lỗi | 13 × 70 × 6 = 5 460 | **5 460/5 460 (100%)** |
+| v2 (sha `97ccd8882d38`) | swarm, fixed, honest_refactor, seeded/slice/flaky_regression | 6 × 140 × 6 = 5 040 | **5 040/5 040 (100%)** |
+
+  Probe giúp mọi metric đều có ca fail thật để so. Ví dụ: probe_leaky_trace có `secret_leak` 0.0 / 0.0, probe_sibling_refund có `approval_bypass` 0.7143 / 0.7143, seeded_regression có `reply_amount_matches_ledger` 0.7857 / 0.7857.
+- **Ý nghĩa và giới hạn:** hai cách cài đặt viết riêng mà khớp từng dòng cho thấy quy tắc trong taxonomy đủ rõ để cài lại mà không lệch. Nhưng cả hai cùng dựa trên một cách hiểu quy tắc, nên một lỗi định nghĩa chung (ví dụ regex số tiền bỏ sót cách viết "35k") sẽ lọt ở cả hai. Port này không thay gate: CI vẫn dùng pydantic-evals, và DeepEval không được cài trong CI (`tests/test_lab9_deepeval_port.py` tự skip khi thiếu thư viện).

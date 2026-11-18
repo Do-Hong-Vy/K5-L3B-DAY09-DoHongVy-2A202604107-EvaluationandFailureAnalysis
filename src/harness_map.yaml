@@ -38,6 +38,7 @@ sections:
     baseline: reports/baseline_v1.json
     baseline_v2: reports/baseline_v2.json
     scorecard: python -m lab9.mutation --spec config/metric_spec_v2.yaml --baseline reports/baseline_v2.json
+    bonus_deepeval: python -m lab9.deepeval_port --probes   # requirements-bonus.txt
     traps: python -m lab9.traps
     taxonomy: docs/failure_taxonomy.md
     eval_card: docs/eval_card.md
