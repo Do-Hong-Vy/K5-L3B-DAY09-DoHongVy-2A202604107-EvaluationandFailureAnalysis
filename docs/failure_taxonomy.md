@@ -1,6 +1,6 @@
 # Failure taxonomy v1
 
-Nguồn bằng chứng: trace do `python -m lab9.trace_case` sinh trên MockLLM (seed cố định). Ký hiệu `shape claim@seed · #n` = event thứ n trong trace. "probe" = `lab9.variant_agent.make_shape(name, {"no_override", <1 công tắc lỗi>})`, tức bản `fixed` chỉ bật đúng một lỗi, chạy trên temp store (không sửa `lab8/`). Eval set v1: `data/eval/eval_set_v1.jsonl` (sha `1282dfd430e2`), baseline `E-swarm-20261118-1282`.
+Nguồn bằng chứng: trace do `python -m lab9.trace_case` sinh trên MockLLM (seed cố định). Ký hiệu `shape claim@seed · #n` = event thứ n trong trace. "probe" = `lab9.variant_agent.make_shape(name, {"no_override", <1 công tắc lỗi>})`, tức bản `fixed` chỉ bật đúng một lỗi, chạy trên temp store (không sửa `lab8/`). Eval set v1: `data/eval/eval_set_v1.jsonl` (sha `4f9a0c46fb84`), baseline `E-swarm-20261118-4f9a`.
 
 | ID | Tên | Định nghĩa (1 câu) | Layer | Bằng chứng (claim@seed / trace) | Grader | Metric |
 |---|---|---|---|---|---|---|

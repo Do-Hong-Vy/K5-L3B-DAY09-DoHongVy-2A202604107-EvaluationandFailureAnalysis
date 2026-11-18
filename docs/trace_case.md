@@ -23,7 +23,7 @@ python -m lab9.trace_case --shape fixed --claim C-013 --seed 11   # đối chứ
 
 | Trường | Nội dung |
 |---|---|
-| Trial | `seeded_regression C-013@11`, report `reports/eval_seeded_regression.json`, run `E-seeded_regression-20261118-1282` (eval set `1282dfd430e2`) |
+| Trial | `seeded_regression C-013@11`, report `reports/eval_seeded_regression.json`, run `E-seeded_regression-20261118-4f9a` (eval set `4f9a0c46fb84`) |
 | Triệu chứng | `pass_rate` fail với lý do `proposal_mismatch`. **Ledger, status và reply đều khớp nhãn** (0đ, denied, câu từ chối lịch sự), nên đọc reply thì không thấy lỗi. Theo nhãn, proposal phải là 35.000đ và host phải ghi audit `policy_denied`. Ledger không có audit này. |
 | Bước sai đầu tiên | **#5 `proposal` · `{"amount_vnd": 0}`**: agent tự trừ 35.000đ đã hoàn trước đó khỏi quote rồi mới đề xuất. |
 | Vì sao là bước *đầu tiên* | #1 handoff đúng tool, đúng scope. #2 đọc đúng O-505 (`delivered_late`). #3 quote 35.000đ theo SHIP-LATE-03 đúng chính sách hiện hành, bằng `proposal_amount` của nhãn. #4 chỉ đọc lịch sử, chưa sai (bản `honest_refactor` cũng đọc thêm như vậy). Sai bắt đầu ở #5, khi agent dùng #4 để tự quyết thay host. Vì đề xuất là 0, host không bao giờ có gì để từ chối nên không ghi `policy_denied`. #6 chỉ là hệ quả của #5. |
